@@ -16,7 +16,7 @@
     />
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">FlaskApp</a>
         <button
@@ -32,11 +32,15 @@
         </button>
         <div class="collapse navbar-collapse mx-auto" id="navbarNav">
           <ul class="navbar-nav">
+            {% if user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/"
-                ><i class="fa-solid fa-house"></i
-              ></a>
+                >Home</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Logout</a>
+            </li>
+            {% else %}
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/login"
                 >Login</a
@@ -45,9 +49,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/sign-up">Sign up</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/logout">Logout</a>
-            </li>
+            {% endif %}
           </ul>
         </div>
       </div>
