@@ -18,7 +18,7 @@ def sign_up():
         password = request.form.get("password")
         confirm_password = request.form.get("confirm_password")
 
-        if len(email) > 4:
+        if len(email) < 4:
             flash('Email must be greater than 4 characters.', category='error')
         elif len(name) < 2:
             flash('Name must be greater than 3 characters.', category='error')
