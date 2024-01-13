@@ -1,9 +1,31 @@
-{% extends "base.html" %}
-{% block title %}Home{% endblock %}
-{% block content %}
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
 <div class="row py-5">
-    <div class="col-12">
-        <h1>This is the home page</h1>
+  <div class="col-12">
+    <h2 class="mb-4">New note</h2>
+    <div class="card">
+      <div class="card-body">
+        <ul class="list-group list-group-flush" id="notes">
+            {% for note in user.notes %}
+            <li class="list-group-item">{{ note.data }}</li>
+            {% endfor %}
+        </ul>
+        <hr>
+        <form method="POST">
+          <label for="note" class="form-label">Note</label>
+          <textarea
+            name="note"
+            id="note"
+            cols="20"
+            rows="10"
+            class="form-control"
+          ></textarea>
+          <div class="center mt-4">
+            <button type="submit" class="btn btn-primary">Add Note</button>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 </div>
 {% endblock %}
